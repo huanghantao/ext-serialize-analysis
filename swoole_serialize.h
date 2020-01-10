@@ -27,8 +27,22 @@ extern "C"
 
 typedef struct _seriaString
 {
+    /**
+     * _STR_HEADER_SIZE + sizeof(SBucketType)
+     */
     size_t offset;
+    /**
+     * seriaString的总大小：
+     * 1、header
+     * 2、实际字符串大小
+     * 3、字符串结束符
+     */
     size_t total;
+    /**
+     * 存放序列化后实际字符串的地方
+     * 
+     * 前面sizeof(SBucketType)个字节存放被序列化数据的类型
+     */
     void * buffer; //zend_string
 } seriaString;
 
