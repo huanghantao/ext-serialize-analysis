@@ -137,6 +137,9 @@ void swoole_serialize_init(int module_number)
     SW_REGISTER_LONG_CONSTANT("UNSERIALIZE_OBJECT_TO_STDCLASS", UNSERIALIZE_OBJECT_TO_STDCLASS);
 }
 
+/**
+ * 分配一个seriaString，类型是type
+ */
 static CPINLINE int swoole_string_new(size_t size, seriaString *str, zend_uchar type)
 {
     int total = ZEND_MM_ALIGNED_SIZE(_STR_HEADER_SIZE + size + 1);
